@@ -14,40 +14,47 @@ public class Assignment1 : ProcessingLite.GP21
     // Start is called before the first frame update
     void Start()
     {
-
+       StartCoroutine(Viktor());
+       Background(0);
+       Viktor();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Background(0);
-        Viktor();
+        //Background(0);
+        //Viktor();
 
     }
 
-    void Viktor()
+    IEnumerator Viktor()
     {
-
+        yield return new WaitForSecondsRealtime(0.5f);
         //V
         Line(2.5f, 7, 4, 3);
         Line(5.5f, 7, 4, 3);
 
+        yield return new WaitForSecondsRealtime(0.5f);
         //I
         Line(6.5f, 7, 6.5f, 3);
 
+        yield return new WaitForSecondsRealtime(0.5f);
         //K
         Line(8, 7, 8, 3);
         Line(8, 5, 10, 3);
         Line(10, 7, 8, 5);
 
+        yield return new WaitForSecondsRealtime(0.5f);
         //T
         Line(12.5f, 7, 12.5f, 3);
         Line(11, 7, 14, 7);
 
+        yield return new WaitForSecondsRealtime(0.5f);
         //O
         Stroke(255, 255, 255);
         Ellipse(x, y, x2, y2);
 
+        yield return new WaitForSecondsRealtime(0.5f);
         //R
         Stroke(255, 255, 255);
         Circle(20, 6, 2);
