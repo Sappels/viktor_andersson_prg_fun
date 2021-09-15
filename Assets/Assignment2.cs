@@ -5,9 +5,6 @@ using UnityEngine;
 public class Assignment2 : ProcessingLite.GP21
 {
 
-    float spaceBetweenLines = 0.5f;
-    //int Lines = 10;
-
 
     // Start is called before the first frame update
     void Start()
@@ -26,29 +23,44 @@ public class Assignment2 : ProcessingLite.GP21
 
         Stroke(0, 0, 0);
         StrokeWeight(0.5f);
-        // pCurves();
 
         for(int i = 0; i < 10; i++)
         {
+
+            if (i % 3 == 0) 
+            {
+                Stroke(128,128,128);
+            }
+            else
+            {
+                Stroke(0,0,0);
+            }
+
+
             Line(0, 10 - i, i, 0);
+
         }
 
     }
 
-    
+    //public float Clamp(float min, float max, float value)
+    //{
+        //if (value < min)
+        //{
+            //value = min;
+        //}
+        //else if (value > max)
+        //{
+            //value = max;
+        //}
+        //return value;
+    //}
 
-   //public void pCurves()
-   //{
-   //    for (int i = 0; i < Lines / spaceBetweenLines; i++)
-   //    {
-   //        //Increase y-cord each time loop run
-   //        float y = i * spaceBetweenLines;
-   //        float x = i * spaceBetweenLines;
-   //
-   //        //Draw a line from left side of screen to the right
-   //        //this time modify the height depending on time passed
-   //        Line(0, (y + Time.time) % Height, Width - x , (y + Time.time) % Height);
-   //        
-   //    }
-   //}
+    //Denna if sats clampar värdet av value. Det finns bara två möjliga values "egentligen",
+    //Skulle value bli lägre en min så kommer den höja värdet till ett min value
+    //Skulle value bli högre än max så kommer den sänka till ett max value
+    //Exempel: min == 1, max == 2
+    // om value == -1, så blir value 1
+    // om value == 3, så blir value 2
+
 }
