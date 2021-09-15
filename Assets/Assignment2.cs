@@ -19,7 +19,6 @@ public class Assignment2 : ProcessingLite.GP21
         Background(50, 166, 240);
 
         //Draw our art, or in this case a rectangle
-        Rect(1, 1, 3, 3);
 
         Stroke(0, 0, 0);
         StrokeWeight(0.5f);
@@ -29,11 +28,11 @@ public class Assignment2 : ProcessingLite.GP21
 
             if (i % 3 == 0) 
             {
-                Stroke(128,128,128);
+                Stroke(0, 0, 0);
             }
             else
             {
-                Stroke(0,0,0);
+                Stroke(128, 128, 128);
             }
 
 
@@ -59,8 +58,10 @@ public class Assignment2 : ProcessingLite.GP21
     //Denna if sats clampar värdet av value. Det finns bara två möjliga values "egentligen",
     //Skulle value bli lägre en min så kommer den höja värdet till ett min value
     //Skulle value bli högre än max så kommer den sänka till ett max value
-    //Exempel: min == 1, max == 2
+
+    //Exempel: min == 1, max == 4
     // om value == -1, så blir value 1
-    // om value == 3, så blir value 2
+    // om value == 5+, så blir value 4
+    // annars om value == 2 eller 3, så stannar värdet.
 
 }
