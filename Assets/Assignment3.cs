@@ -6,13 +6,13 @@ public class Assignment3 : ProcessingLite.GP21
 {
 
     public Vector2 circlePosition;
-    public float diameter = 0.2f;
-    public float direction;
+    private float diameter = 1f;
+    public Vector2 direction;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,30 +20,48 @@ public class Assignment3 : ProcessingLite.GP21
     {
         Background(0);
 
-        if(Input.GetMouseButtonDown(0))
+
+        //Få cirkeln att flyga iväg när du släpper musknappen
+        if (Input.GetMouseButtonUp(0))
+        {
+            direction = new Vector2(MouseX - circlePosition.x, MouseY - circlePosition.y);
+            Debug.Log(direction);
+
+        }
+
+        //Flytta cirkeln när du trycker på musknappen
+        if (Input.GetMouseButtonDown(0))
         {
             circlePosition.x = MouseX;
             circlePosition.y = MouseY;
+
         }
+
+        //dra linjen från cirkeln
         if (Input.GetMouseButton(0))
         {
             Line(circlePosition.x, circlePosition.y, MouseX, MouseY);
         }
 
-            Circle(circlePosition.x, circlePosition.y, diameter);
+        //få cirkeln att flyga 
+        circlePosition += direction * Time.deltaTime;
+        //Rita cirkeln
+        Circle(circlePosition.x, circlePosition.y, diameter);
+        
+        
+        //Får cirkeln att byta riktning när den träffar väggen.
+        if (!Input.GetMouseButton(0))
+        {
+            if (circlePosition.y >= 13 || circlePosition.y <= 0)
+            {
+                direction.y *= -1;
+            }
+            if (circlePosition.x >= 13 || circlePosition.x <= 0)
+            {
+                direction.x *= -1;
+            }
+        }
 
-        Vector2 direction = new Vector2(circlePosition.x - MouseX, circlePosition.y - MouseY);
 
-        Debug.Log(direction);
     }
-
-
-    //void Circle()
-    //{
-    //    Background(0);
-    //    Circle(CirclePositionX, CirclePositionY, diameter);
-    //}
-
-
-
 }
