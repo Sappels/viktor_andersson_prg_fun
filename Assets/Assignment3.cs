@@ -47,16 +47,16 @@ public class Assignment3 : ProcessingLite.GP21
         circlePosition += direction * Time.deltaTime;
         //Rita cirkeln
         Circle(circlePosition.x, circlePosition.y, diameter);
-        
-        
+
+
         //Får cirkeln att byta riktning när den träffar väggen.
         if (!Input.GetMouseButton(0))
         {
-            if (circlePosition.y >= 13 || circlePosition.y <= 0)
+            if (circlePosition.y >= Height || circlePosition.y <= 0)
             {
                 direction.y *= -1;
             }
-            if (circlePosition.x >= 13 || circlePosition.x <= 0)
+            if (circlePosition.x >= Width || circlePosition.x <= 0)
             {
                 direction.x *= -1;
             }
