@@ -27,58 +27,45 @@ public class Assignment4 : ProcessingLite.GP21
     {
         Background(0);
 
-        Circle(playerPos.x, playerPos.y, diameter);
-        Circle(enemyPos.x, enemyPos.y, diameter);
-
-
-        enemyPos.x += acceleration.x;
-        enemyPos.y += acceleration.y;
-
 
         if (Input.GetKey(KeyCode.W))
         {
             acceleration.y += 0.1f * Time.deltaTime;
             playerPos.y += speed * Time.deltaTime;
-
-
-        }else if(acceleration.y >= 0)
-        {
-            acceleration.y -= 0.01f * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             acceleration.x -= 0.1f * Time.deltaTime;
             playerPos.x -= speed * Time.deltaTime;
-         
-        }
-        else if (acceleration.x >= 0)
-        {
-            acceleration.x += 0.01f * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
             acceleration.y -= 0.1f * Time.deltaTime;
             playerPos.y -= speed * Time.deltaTime;
-
-        }
-        else if (acceleration.y >= 0)
-        {
-            acceleration.y += 0.01f * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
             acceleration.x += 0.1f * Time.deltaTime;
             playerPos.x += speed * Time.deltaTime;
-
-        }
-        else if (acceleration.x >= 0)
-        {
-            acceleration.x -= 0.01f * Time.deltaTime;
         }
 
+        acceleration *= 0.99f;
+
+        enemyPos.x += acceleration.x;
+        enemyPos.y += acceleration.y;
+
+        Circle(playerPos.x, playerPos.y, diameter);
+        Circle(enemyPos.x, enemyPos.y, diameter);
+
+
+        playerPos.x = (playerPos.x + Width) % Width;
+        playerPos.y = (playerPos.y + Height) % Height;
+
+        enemyPos.x = (enemyPos.x + Width) % Width;
+        enemyPos.y = (enemyPos.y + Height) % Height;
     }
 
 
