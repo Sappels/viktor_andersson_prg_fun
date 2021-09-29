@@ -34,16 +34,12 @@ class Ball : ProcessingLite.GP21
 
         if (position.x > Width || position.x < 0)
         {
-            velocity.x = Random.Range(0, 11) - 5;
+            velocity.x *= -1;
         }
         else if (position.y > Height || position.y < 0)
         {
-            velocity.y = Random.Range(0, 11) - 5;
+            velocity.y *= -1;
         }
 
-
-        //Screenwrap
-       //position.x = (position.x + Width) % Width;
-       //position.y = (position.y + Height) % Height;
     }
 }
