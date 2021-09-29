@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-class Ball : ProcessingLite.GP21
+public class Ball : ProcessingLite.GP21
 {
     //Our class variables
-    Vector2 position; //Ball position
+    public Vector2 position; //Ball position
     Vector2 velocity; //Ball direction
+    public float diameter = 0.3f;
 
     //Ball Constructor, called when we type new Ball(x, y);
     public Ball(float x, float y)
@@ -24,7 +25,7 @@ class Ball : ProcessingLite.GP21
     public void Draw()
     {
         Stroke(0, 255, 0);
-        Circle(position.x, position.y, 1f);
+        Circle(position.x, position.y, diameter);
     }
 
     //Update our ball
