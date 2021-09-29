@@ -14,13 +14,13 @@ public class Assignment5 : ProcessingLite.GP21
     // Start is called before the first frame update
     void Start()
     {
-        bolliboll = new Ball (5, 5);
+        bolliboll = new Ball (10, 10);
         balls = new Ball[numberOfBalls];
         myPlayer = new Player();
 
         for (int i = 0; i < balls.Length; i++)
         {
-            balls[i] = new Ball(5, 5);
+            balls[i] = new Ball(2, 2);
         }
 
     }

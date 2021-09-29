@@ -33,11 +33,11 @@ public class Ball : ProcessingLite.GP21
     {
         position += velocity * Time.deltaTime;
 
-        if (position.x > Width || position.x < 0)
+        if (position.x > Width - diameter / 2 || position.x < 0 + diameter / 2)
         {
             velocity.x *= -1;
         }
-        else if (position.y > Height || position.y < 0)
+        else if (position.y > Height - diameter / 2 || position.y < 0 + diameter / 2)
         {
             velocity.y *= -1;
         }

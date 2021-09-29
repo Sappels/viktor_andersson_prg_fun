@@ -87,7 +87,10 @@ public class Player : ProcessingLite.GP21
         //We now know the points are closer then the distance so we are colliding!
         else
         {
-            Debug.Log("Yo");
+            TextSize(100);
+            Fill(0, 190, 0);
+            Text("Game Over", Width / 2 , Height / 2);
+            Time.timeScale = 0 * Time.fixedDeltaTime;
             return true;
         }
     }
